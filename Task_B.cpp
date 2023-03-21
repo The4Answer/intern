@@ -20,8 +20,8 @@ ifstream cin("input.txt");
 ofstream cout("output.txt");
 
 struct st {
-	int delt;
-	int ind;
+	long long delt;
+	long long ind;
 };
 
 bool cmp(st f, st s) {
@@ -29,15 +29,15 @@ bool cmp(st f, st s) {
 }
 
 int main() {
-	int n;
+	long long n;
 	cin >> n;
-	int x;
+	long long x;
 	cin >> x;
 	long long T;
 	cin >> T;
 	vector <st> a;
-	for (int i = 0; i < n; ++i) {
-		int tmp;
+	for (long long i = 0; i < n; ++i) {
+		long long tmp;
 		cin >> tmp;
 		st t;
 		t.delt = abs(tmp - x);
@@ -45,15 +45,15 @@ int main() {
 		a.push_back(t);
 	}
 	sort(a.begin(), a.end(), cmp);
-	vector<int> ans;
-	for (int i = 0; i < n && T > 0; ++i) {
-		if (a[i].delt < T) 
+	vector<long long> ans;
+	for (long long i = 0; i < n && T > -1; ++i) {
+		if (a[i].delt <= T) 
 			ans.push_back(a[i].ind);
 		T -= a[i].delt;
 	}
 	sort(ans.begin(), ans.end());
 	cout << ans.size() << "\n";
-	for (int i = 0; i < ans.size(); ++i)
+	for (long long i = 0; i < ans.size(); ++i)
 		cout << ans[i] << " ";
 
 	return 0;
