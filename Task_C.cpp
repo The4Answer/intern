@@ -118,7 +118,7 @@ int main() {
 
 	int maxAns = -1;
 	for (int i = 0; i < n; ++i) {
-		int maxLeft = -1;
+		int maxLeft = 0;
 		if (i > 0) {
 			st maxL = findMax(1, 0, n - 1, 0, i - 1);
 			st minL = findMin(1, 0, n - 1, 0, maxL.ind);
@@ -155,7 +155,7 @@ int main() {
 		}
 		////
 		//maxAns = max(maxAns, maxLeft + maxRight);
-		if (maxAns < maxLeft + maxRight) {
+		if (maxAns < maxLeft + maxRight ) {
 			maxAns = maxLeft + maxRight;
 			ansI1 = tansI1, ansI2 = tansI2, ansI3 = tansI3, ansI4 = tansI4;
 		}
@@ -165,8 +165,8 @@ int main() {
 		cout << 0;
 	else {
 		if (ansI1 < ansI2 && ansI3 < ansI4) {
-			cout << 2 << "\n";
-			cout << ansI1 + 1 << " " << ansI2 + 1 << "\n" << ansI3 + 1 << " " << ansI4 + 1;
+				cout << 2 << "\n";
+				cout << ansI1 + 1 << " " << ansI2 + 1 << "\n" << ansI3 + 1 << " " << ansI4 + 1;
 		}
 		else if (ansI1 < ansI2) {
 			cout << 1 << "\n";
